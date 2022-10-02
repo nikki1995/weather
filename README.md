@@ -5,20 +5,35 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: ruby 2.7.0p
 
-* System dependencies
+* Rails version: Rails 6.1.7
 
-* Configuration
+* Used Weather API: Retrived Weather data from website https://openweathermap.org
 
-* Database creation
+* How the App Works: 
 
-* Database initialization
+App has form which has 2 input fields zipcode, units
 
-* How to run the test suite
+Zipcode: zipcode of place where you want to know the weather conditions, EX: 20871
+Units: In which units you want the weather to be displayed, EX: F or C
 
-* Services (job queues, cache servers, search engines, etc.)
+Once submitted data app will display the current weather condition and weather forcasting
 
-* Deployment instructions
+* validations:
 
-* ...
+Need to provide the correct zipcode and the zipcode field shouldn't be empty
+
+* Steps to Build
+
+clone app
+Bundle install
+rails s
+Add below env variables in config/env_vars.rb(create file)
+  ENV['API_KEY'] = "..."
+  ENV['API_URL'] = "https://api.openweathermap.org"
+  
+run localhost:3000 in browser
+
+
+* How to run the test suite: bundle exec rspec spec
