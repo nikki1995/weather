@@ -1,0 +1,8 @@
+<% unless @error_message %>
+  <% if @current_weather['message'] %>
+    <%= render partial: 'shared/error', locals: { error_message: @current_weather['message'].capitalize } %>
+  <% else %>
+    <%= render partial: 'shared/current_weather', locals: {current_weather: @current_weather, measurement_degree: @degree, is_cached: @cached} %>
+    <%= render partial: 'shared/current_forecast', locals: {forecast: @weather_forecast, measurement_degree: @degree} %>
+  <% end %>
+<% end %>

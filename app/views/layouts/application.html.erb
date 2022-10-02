@@ -11,6 +11,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'shared/error' %>
+    <%= render 'shared/header' %>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
   </body>
 </html>
