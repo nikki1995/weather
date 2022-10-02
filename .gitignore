@@ -29,8 +29,8 @@
 /public/assets
 .byebug_history
 
-# Ignore master key for decrypting credentials and more.
-/config/master.key
+# Ignore env variables
+/config/env_vars.rb
 
 /public/packs
 /public/packs-test
