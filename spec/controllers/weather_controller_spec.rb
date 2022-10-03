@@ -19,19 +19,19 @@ RSpec.describe WeatherController, type: :controller do
     it "returns city not found if invalid zipcode is sent" do
       params = { 'zipcode' => '00000', 'unit' => 'Fahrenheit'}
       get :show, params: params
-      expect(@controller.instance_variable_get(:@current_weather_data)).to eq({"cod"=>"404", "message"=>"city not found"})
+      expect(@controller.instance_variable_get(:@current_weather)).to eq({"cod"=>"404", "message"=>"city not found"})
     end
 
     it "returns valid response if valid zipcode is sent" do
       params = { 'zipcode' => '95014', 'unit' => 'Fahrenheit'}
       get :show, params: params
-      expect(@controller.instance_variable_get(:@current_weather_data)['name']).to eq('Cupertino')
+      expect(@controller.instance_variable_get(:@current_weather)['name']).to eq('Cupertino')
     end
 
     it "returns imperial as unit when Fahrenheit measurement_unit is passed" do
-      params = { 'zipcode' => '95014', 'unit' => 'Fahrenheit'}
+      params = { 'zipcode' => '95014', 'unit' => 'F'}
       get :show, params: params
-      expect(@controller.instance_variable_get(:@measurement_degree)).to eq('°F')
+      expect(@controller.instance_variable_get(:@degree)).to eq('°F')
     end
   end
 end
